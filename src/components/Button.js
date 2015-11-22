@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     paddingLeft: SIZES.BASE_PADDING * 2,
     paddingRight: SIZES.BASE_PADDING * 2,
     height: SIZES.INPUT_HEIGHT,
-    margin: SIZES.BASE_PADDING,
     backgroundColor: COLORS.PRIMARY,
     justifyContent: 'center',
     alignItems: 'center',
