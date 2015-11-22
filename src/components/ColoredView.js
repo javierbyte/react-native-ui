@@ -29,11 +29,13 @@ const ColoredView = React.createClass({
     const isLight = tinycolor(color).getBrightness() > 128
 
     const stylesContainer = _.merge({}, styles.container, {
-      backgroundColor: color
+      // backgroundColor: color
+      backgroundColor: '#333'
     })
 
     const stylesTitle = _.merge({}, styles.title, {
-      backgroundColor: isLight ? tinycolor(color).darken(5).toString() : tinycolor(color).lighten(5).toString(),
+      backgroundColor: tinycolor(color).lighten(3).toString(),
+      padding: 15,
       color: isLight ? '#000' : '#fff'
     })
 
@@ -64,11 +66,11 @@ var styles = {
     textAlign: 'center',
     color: '#fff',
     fontSize: 18,
-    backgroundColor: '#4599d0'
+    backgroundColor: '#4599d0',
+    fontWeight: '600'
   },
   content: {
-    flex: 1,
-    padding: SIZES.BASE_PADDING
+    flex: 1
   }
 }
 
