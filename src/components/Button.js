@@ -3,7 +3,7 @@ import React, {Component, View, Text, StyleSheet, TouchableOpacity} from 'react-
 import SIZES from '../styles/sizes.js'
 import COLORS from '../styles/colors.js'
 
-export default class FullButton extends Component {
+export default class Button extends Component {
 
   static propTypes = {
     onPress: React.PropTypes.func,
