@@ -17,7 +17,7 @@ const ProgressBar = React.createClass({
     const progressStyles = {
       backgroundColor: '#E66000',
       flex: progress,
-      borderRadius: 4
+      borderRadius: 5
     }
 
     const remainingStyles = {
@@ -39,8 +39,8 @@ var styles = {
     backgroundColor: '#d1d2d3',
     flexAlign: 'stretch',
     flexDirection: 'row',
-    height: 8,
-    borderRadius: 4
+    height: 10,
+    borderRadius: 5
   }
 }
 
