@@ -1,0 +1,7 @@
+module.exports = {
+  BASE_PADDING: 15,
+  BORDER_RADIUS: 3,
+  INPUT_HEIGHT: 40,
+  FORM_CONTAINER_PADDING: 15,
+  FONT_SIZE: 15
+}
