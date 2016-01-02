@@ -10,4 +10,4 @@ const UI = {
   ProgressBar
 }
 
-export default UI
+module.exports = UI
