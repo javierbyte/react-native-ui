@@ -7,14 +7,14 @@ import SIZES from '../styles/sizes.js'
 var {
   Text,
   View,
-  StatusBarIOS,
+  StatusBar,
   ScrollView
 } = React
 
 const ColoredView = React.createClass({
 
   propTypes: {
-    title: React.PropTypes.string,
+    title: React.PropTypes.any,
     color: React.PropTypes.string,
     children: React.PropTypes.element,
 
@@ -22,7 +22,7 @@ const ColoredView = React.createClass({
   },
 
   componentWillMount () {
-    StatusBarIOS.setStyle('light-content')
+    StatusBar.setBarStyle('light-content')
   },
 
   render () {
@@ -40,14 +40,14 @@ const ColoredView = React.createClass({
     return (
       <View style={stylesContainer}>
         <View style={stylesTitleContainer}>
-          <Text style={styles.title}>{title}</Text>
+          {typeof title === 'string' ? <Text style={styles.title}>{title}</Text> : <View>{title}</View>}
 
           <View style={styles.leftButton}>
             {leftComponent}
           </View>
         </View>
 
-        <ScrollView style={styles.content}>
+        <ScrollView contentContainerStyle={styles.container} style={styles.content}>
           {children}
         </ScrollView>
       </View>
