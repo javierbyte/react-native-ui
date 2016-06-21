@@ -1,36 +1,41 @@
-import React from 'react-native'
-import _ from 'lodash'
-import tinycolor from 'tinycolor2'
+const React = require('react')
+const ReactNative = require('react-native')
+const _ = require('lodash')
+const tinycolor = require('tinycolor2')
 
-import SIZES from '../styles/sizes.js'
+const SIZES = require('../styles/sizes.js')
 
 var {
   Text,
   View,
   StatusBar,
   ScrollView
-} = React
+} = ReactNative
 
 const ColoredView = React.createClass({
 
   propTypes: {
     title: React.PropTypes.any,
     color: React.PropTypes.string,
-    children: React.PropTypes.element,
+    children: React.PropTypes.any,
 
-    leftComponent: React.PropTypes.element
+    customStyles: React.PropTypes.object,
+    leftComponent: React.PropTypes.element,
+
+    statusBarStyle: React.PropTypes.string
   },
 
   componentWillMount () {
-    StatusBar.setBarStyle('light-content')
+    var statusBarStyle = this.props.statusBarStyle || 'light-content'
+    StatusBar.setBarStyle(statusBarStyle)
   },
 
   render () {
-    const {title, color, children, leftComponent} = this.props
+    const {title, color, children, leftComponent, customStyles} = this.props
 
     const stylesContainer = _.merge({}, styles.container, {
       backgroundColor: '#f1f2f3'
-    })
+    }, _.get(customStyles, 'container'))
 
     const stylesTitleContainer = _.merge({}, styles.titleContainer, {
       backgroundColor: tinycolor(color).lighten(3).toString(),
@@ -40,16 +45,16 @@ const ColoredView = React.createClass({
     return (
       <View style={stylesContainer}>
         <View style={stylesTitleContainer}>
-          {typeof title === 'string' ? <Text style={styles.title}>{title}</Text> : <View>{title}</View>}
+          {typeof title === 'string' ? <Text style={_.merge({}, styles.title, _.get(customStyles, 'title'))}>{title}</Text> : <View>{title}</View>}
 
           <View style={styles.leftButton}>
             {leftComponent}
           </View>
         </View>
 
-        <ScrollView contentContainerStyle={styles.container} style={styles.content}>
+        <View contentContainerStyle={styles.container} style={styles.content}>
           {children}
-        </ScrollView>
+        </View>
       </View>
     )
   }
@@ -60,7 +65,7 @@ var styles = {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
-    backgroundColor: '#2980B9'
+    backgroundColor: '#fff'
   },
   titleContainer: {
     padding: SIZES.BASE_PADDING,

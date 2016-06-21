@@ -1,4 +1,4 @@
-import React from 'react-native'
+const React = require('react')
 
 var {
   View

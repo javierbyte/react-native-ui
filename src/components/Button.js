@@ -1,15 +1,16 @@
-import React, {Component, View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+const ReactNative = require('react-native')
+const React = require('react')
+const {Component, View, Text, StyleSheet, TouchableOpacity} = ReactNative
 
-import SIZES from '../styles/sizes.js'
-import COLORS from '../styles/colors.js'
+const SIZES = require('../styles/sizes.js')
+const COLORS = require('../styles/colors.js')
 
-export default class Button extends Component {
-
-  static propTypes = {
+const Button = React.createClass({
+  propTypes: {
     onPress: React.PropTypes.func,
     color: React.PropTypes.string,
     children: React.PropTypes.any
-  }
+  },
 
   render () {
     const {color} = this.props
@@ -24,7 +25,7 @@ export default class Button extends Component {
       </TouchableOpacity>
     )
   }
-}
+})
 
 const styles = StyleSheet.create({
   container: {
@@ -43,3 +44,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 })
+
+module.exports = Button

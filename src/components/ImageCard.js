@@ -1,6 +1,7 @@
-import React from 'react-native'
+const React = require('react')
+const ReactNative = require('react-native')
 
-import SIZES from '../styles/sizes.js'
+const SIZES = require('../styles/sizes.js')
 
 const {Image, Text, View, TouchableOpacity} = React
 
